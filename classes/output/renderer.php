@@ -14,17 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
- /**
-  * Renders the "Import rubric from CSV" button for the grading form interface.
-  *
-  * @package   local_customgradingform_renderer
-  * @copyright 2025 Richard Rangel
-  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-  */
+/**
+ * Renders the "Import rubric from CSV" button for the grading form interface.
+ *
+ * @package   local_customgradingform_renderer
+ * @copyright 2025 Richard Rangel
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 namespace local_customgradingform_renderer\output;
-
-defined('MOODLE_INTERNAL') || die();
 
 use plugin_renderer_base;
 use moodle_url;
@@ -43,23 +41,26 @@ class renderer extends plugin_renderer_base {
      * @return string HTML button markup.
      */
     public function gradingform_new_form_from_file_button(int $areaid, int $contextid, string $returnurl = ''): string {
-        global $PAGE;
 
         // Build return URL back to grading form management.
         $returnurl = new moodle_url('/grade/grading/manage.php', [
             'contextid' => $contextid,
-            'component' => 'mod_' . $PAGE->cm->modname,
-            'area' => 'submissions'
+            'component' => 'mod_' . $this->page->cm->modname,
+            'area' => 'submissions',
         ]);
 
         // URL for the import interface.
         $url = new moodle_url('/local/customgradingform_renderer/import.php', [
             'areaid' => $areaid,
             'contextid' => $contextid,
-            'returnurl' => $returnurl->out(false)
+            'returnurl' => $returnurl->out(false),
         ]);
 
         // Render the button using core renderer.
-        return $this->output->single_button($url, get_string('importfromcsv', 'local_customgradingform_renderer'), 'get');
+        return $this->output->single_button(
+            $url,
+            get_string('importfromcsv', 'local_customgradingform_renderer'),
+            'get'
+        );
     }
 }

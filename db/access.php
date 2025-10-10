@@ -30,7 +30,7 @@ $capabilities = [
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes'   => [
             'manager' => CAP_ALLOW,
-            // Uncomment if teachers should also be allowed:
+            // Uncomment if teachers should also be allowed.
             'editingteacher' => CAP_ALLOW,
         ],
     ],
