@@ -15,43 +15,40 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * handles strings.
+ * Language strings for Rubric Importer Core.
  *
  * @package   local_customgradingform_renderer
  * @copyright 2025 Richard Rangel
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Rubric Importer Core';
-$string['customgradingform_renderer:import'] = 'Allows the user to import grading rubrics from a CSV file into an activity.';
-$string['importfromcsv'] = 'Import rubric from CSV';
 $string['choosecsvfile'] = 'Choose CSV file';
-$string['submitcsv'] = 'Import rubric';
+$string['csvinvalidcharsfound'] = 'Fields expect comma-separated values without invalid characters. Do not include double quotes ("), extra commas (,), or semicolons (;) inside fields.';
+$string['csvinvalidcharslist_simple'] = 'Lines with issues:';
+$string['csvlineonly'] = 'Line {$a}';
+$string['csvmissingcolumns'] = 'CSV file must contain columns: criterion, level, level_description, and score.';
 $string['csvrequired'] = 'You must select a valid CSV file.';
-$string['importsuccess'] = 'Rubric imported successfully.';
+$string['customgradingform_renderer:import'] = 'Allows the user to import grading rubrics from a CSV file into an activity.';
+$string['enablemaxlevelscore'] = 'Enable maximum score validation.';
+$string['enablemaxlevelscore_desc'] = 'If enabled, the system will validate that no level exceeds the configured maximum value.';
+$string['enableminlevelscore'] = 'Enable minimum score validation.';
+$string['enableminlevelscore_desc'] = 'If enabled, the system will validate that at least one level has the configured minimum score.';
+$string['errormaxexceeded'] = '⚠️ Error: Score {$a->score} in criterion {$a->criterion} exceeds the maximum allowed of {$a->max}.';
+$string['errorminmissing'] = '⚠️ Error: Criterion {$a->criterion} does not contain the minimum allowed score of {$a->min}.';
+$string['errormismatchtotal'] = '⚠️ Error: The sum of highest levels is {$a->sum}, but the activity maximum grade is {$a->grademax}.';
+$string['errorrepeatedscores'] = '⚠️ Error: Criterion {$a} has repeated level scores. Each level must have a unique score.';
+$string['errorrubricexists'] = '⚠️ A rubric is already defined for this activity. You cannot import another one.';
+$string['fileopenerror'] = 'Failed to open the CSV file.';
+$string['importedrubricname'] = 'Imported Rubric ({$a})';
 $string['importerror'] = 'An error occurred while importing the rubric.';
-
-// Maximum score validation
+$string['importfromcsv'] = 'Import rubric from CSV';
+$string['importsuccess'] = 'Rubric imported successfully.';
+$string['invalidcsvformat'] = 'Invalid CSV format. Only text-based .csv files are allowed.';
 $string['maxlevelscore'] = 'Maximum score per level';
 $string['maxlevelscore_desc'] = 'Defines the maximum allowed score for each evaluation level within a criterion. If any level in the CSV file exceeds this value, an error will be shown during import.';
-$string['enablemaxlevelscore'] = 'Enable maximum score validation';
-$string['enablemaxlevelscore_desc'] = 'If enabled, the system will validate that no level exceeds the configured maximum value.';
-
-// Minimum score validation
-$string['enableminlevelscore'] = 'Enable minimum score validation';
-$string['enableminlevelscore_desc'] = 'If enabled, the system will validate that at least one level has the configured minimum score.';
 $string['minlevelscore'] = 'Minimum score per level';
 $string['minlevelscore_desc'] = 'Minimum allowed score for a level. Typically this is 0.';
-
-
-$string['fileopenerror'] = 'Failed to open the CSV file.';
-$string['invalidcsvformat'] = 'Invalid CSV format. Only text-based .csv files are allowed.';
-$string['csvmissingcolumns'] = 'CSV file must contain columns: criterion, level_description, and score.';
-$string['errorrubricexists'] = '⚠️ A rubric is already defined for this activity. You cannot import another one.';
-$string['errorrepeatedscores'] = '⚠️ Error: Criterion {$a} has repeated level scores. Each level must have a unique score.';
-$string['errorminmissing'] = '⚠️ Error: Criterion {$a->criterion} does not contain the minimum allowed score of {$a->min}.';
-$string['errormaxexceeded'] = '⚠️ Error: Score {$a->score} in criterion {$a->criterion} exceeds the maximum allowed of {$a->max}.';
-$string['errormismatchtotal'] = '⚠️ Error: The sum of highest levels is {$a->sum}, but the activity maximum grade is {$a->grademax}.';
-$string['importedrubricname'] = 'Imported Rubric ({$a})';
-$string['rubricalreadydefined'] = '⚠️ A rubric is already defined for this activity. Importing a new one is not allowed.';
+$string['pluginname'] = 'Rubric Importer Core';
 $string['privacy:metadata'] = 'This plugin does not store any personal user data.';
+$string['rubricalreadydefined'] = '⚠️ A rubric is already defined for this activity. Importing a new one is not allowed.';
+$string['submitcsv'] = 'Import rubric.';
