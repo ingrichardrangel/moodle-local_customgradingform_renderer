@@ -22,18 +22,32 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 require_once($CFG->libdir . '/formslib.php');
 
+/**
+ * Import form for uploading a rubric CSV file.
+ */
 class import_form extends moodleform {
+    /**
+     * Define form elements.
+     */
     public function definition() {
         $mform = $this->_form;
 
         // File picker.
-        $mform->addElement('filepicker', 'rubriccsv', get_string('choosecsvfile', 'local_customgradingform_renderer'), null, [
-            'accepted_types' => ['.csv'],
-            'maxbytes' => 0,
-            'subdirs' => 0
-        ]);
+        $mform->addElement(
+            'filepicker',
+            'rubriccsv',
+            get_string('choosecsvfile', 'local_customgradingform_renderer'),
+            null,
+            [
+                'accepted_types' => ['.csv'],
+                'maxbytes' => 0,
+                'subdirs' => 0,
+            ]
+        );
         $mform->addRule('rubriccsv', null, 'required');
 
         // Hidden elements to maintain state.

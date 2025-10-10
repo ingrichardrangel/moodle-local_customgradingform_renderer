@@ -41,7 +41,7 @@ $area = 'submissions';
 $gradingarea = $DB->get_record('grading_areas', [
     'contextid' => $context->id,
     'component' => $component,
-    'areaname'  => $area
+    'areaname'  => $area,
 ]);
 
 if (!$gradingarea) {
@@ -58,7 +58,7 @@ if (!$gradingarea) {
 
 $alreadyexists = $DB->record_exists('grading_definitions', [
     'areaid' => $gradingarea->id,
-    'method' => 'rubric'
+    'method' => 'rubric',
 ]);
 
 $returnurl = new moodle_url('/mod/' . $cm->modname . '/view.php', ['id' => $cm->id]);
@@ -87,7 +87,7 @@ if ($alreadyexists) {
 $importurl = new moodle_url('/local/customgradingform_renderer/import.php', [
     'areaid' => $gradingarea->id,
     'contextid' => $context->id,
-    'returnurl' => $returnurl->out(false)
+    'returnurl' => $returnurl->out(false),
 ]);
 
 redirect($importurl);
